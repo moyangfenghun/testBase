@@ -49,16 +49,20 @@ public class myThread implements Runnable {
 			if(!StringUtils.isNullOrEmpty(sendGet)){
 				try {
 					JSONObject parseObject = JSON.parseObject(sendGet);
-					if("0".equals(parseObject.getString("number"))&&!"20191231".equals(substring)){
-						System.out.println(paramers+"---停止---");
-						String[] getnewpt = rengwu.getnewpt();
-						if(Integer.parseInt(getnewpt[0])>=20160101){
-							paramers="size=15&startpt="+getnewpt[0]+"&endpt="+getnewpt[1];
-							System.out.println(paramers+"---开始---");
-						}else{
-							jishu=0;
+					if("leiji".equals(url.substring(url.length()-5,url.length()))){
+					}else{
+						if("0".equals(parseObject.getString("number"))&&!"20191231".equals(substring)){
+							System.out.println(paramers+"---停止---");
+							String[] getnewpt = rengwu.getnewpt();
+							if(Integer.parseInt(getnewpt[0])>=20160101){
+								paramers="size=15&startpt="+getnewpt[0]+"&endpt="+getnewpt[1];
+								System.out.println(paramers+"---开始---");
+							}else{
+								jishu=0;
+							}
 						}
 					}
+					
 				} catch (Exception e) {
 					if("0".equals(sendGet)&&!"20191231".equals(substring)){
 						System.out.println(paramers+"---停止---");

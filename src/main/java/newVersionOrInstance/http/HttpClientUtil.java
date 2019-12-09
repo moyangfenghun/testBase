@@ -119,8 +119,8 @@ public class HttpClientUtil {
         
 
         // 设置请求超时时间
-        requestConfig = RequestConfig.custom().setSocketTimeout(50000).setConnectTimeout(50000)
-                .setConnectionRequestTimeout(50000).build();
+        requestConfig = RequestConfig.custom().setSocketTimeout(120000).setConnectTimeout(120000)
+                .setConnectionRequestTimeout(120000).build();
     }
 
     /**

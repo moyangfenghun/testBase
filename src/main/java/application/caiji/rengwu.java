@@ -21,30 +21,17 @@ public class rengwu {
 	private static String enwpt="20190101";
 	public static void main(String[] args) throws ParseException {
 		String yuimng="http://datacollect.cnbkw.com:8088";
+		String yuming1="http://localhost:8080/datacollect/";
+
 		ExecutorService service = Executors.newFixedThreadPool(15);
 		rengwu rengwu=new rengwu();
 		//推广
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20190101&endpt=20190331",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20190401&endpt=20190631",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20190701&endpt=20190831",2,rengwu));
 
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=10&startpt=20190901&endpt=20191231",2,rengwu));
-		
-		
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20180101&endpt=20180230",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20180301&endpt=20180430",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20180501&endpt=20180630",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20180701&endpt=20180930",2,rengwu));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20181001&endpt=20181231",2,rengwu));
-//
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20170101&endpt=20170331",2));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20170401&endpt=20170630",2));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20170701&endpt=20170930",2));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20171001&endpt=20171231",2));
-
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20160101&endpt=20160430",2));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20160501&endpt=20160831",2));
-//		service.execute(new myThread(yuimng+"/tuiguang/extensionptpromotionanalysis", "size=15&startpt=20160901&endpt=20161231",2));
+		service.execute(new myThread(yuming1+"tuiguang/ptanalysis/bianli/leiji", "size=240&id=85&endpt=20190301",2,null));
+//		service.execute(new myThread(yuming1+"tuiguang/ptanalysis/bianli/leiji", "size=240&id=86&endpt=20190401",2,null));
+//		service.execute(new myThread(yuming1+"tuiguang/ptanalysis/bianli/leiji", "size=240&id=87&endpt=20190501",2,null));
+//		service.execute(new myThread(yuming1+"tuiguang/ptanalysis/bianli/leiji", "size=240&id=88&endpt=20190601",2,null));
+//		service.execute(new myThread(yuming1+"tuiguang/ptanalysis/bianli/leiji", "size=240&id=89&endpt=20190701",2,null));
 
 //		service.execute(new myThread(yuimng+"/tuiguangnew/ordertotuiguang", "size=100",2,null));
 //		service.execute(new myThread(yuimng+"/tuiguangnew/ordertotuiguang", "size=50&startpt=20191001&endpt=20191231",4,null));
