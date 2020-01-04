@@ -1,4 +1,4 @@
-package newVersionOrInstance.singleton;
+package newcontent.singleton;
 
 public class threadme  implements Runnable{
 

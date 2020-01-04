@@ -1,4 +1,4 @@
-package newVersionOrInstance.http;
+package newcontent.http;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -49,6 +50,7 @@ import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -755,7 +757,7 @@ public class HttpClientUtil {
                     paramList.add(new BasicNameValuePair(key, param.get(key)));
                 }
                 // 模拟表单
-                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);
+                StringEntity entity = new UrlEncodedFormEntity(paramList,Charset.forName("UTF-8"));
                 httpPost.setEntity(entity);
             }
             // 执行http请求

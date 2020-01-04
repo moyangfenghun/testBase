@@ -1,4 +1,4 @@
-package newVersionOrInstance.singleton;
+package newcontent.singleton;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

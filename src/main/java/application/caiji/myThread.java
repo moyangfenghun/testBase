@@ -7,8 +7,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mysql.cj.util.StringUtils;
 
-import newVersionOrInstance.http.HttpClientUtil;
-import newVersionOrInstance.http.httprequestUtil;
+import newcontent.http.HttpClientUtil;
+import newcontent.http.httprequestUtil;
 
 public class myThread implements Runnable {
 

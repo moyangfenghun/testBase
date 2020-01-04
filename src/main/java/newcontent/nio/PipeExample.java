@@ -1,4 +1,4 @@
-package newVersionOrInstance.nio;
+package newcontent.nio;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

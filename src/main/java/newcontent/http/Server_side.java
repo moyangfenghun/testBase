@@ -1,4 +1,4 @@
-package newVersionOrInstance.http;
+package newcontent.http;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

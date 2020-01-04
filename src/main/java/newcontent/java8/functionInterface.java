@@ -1,4 +1,4 @@
-package newVersionOrInstance.java8;
+package newcontent.java8;
 
 import java.util.Arrays;
 import java.util.List;

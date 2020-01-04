@@ -1,4 +1,4 @@
-package newVersionOrInstance.http;
+package newcontent.http;
 
 public class MyHttpClientUtils {
 	

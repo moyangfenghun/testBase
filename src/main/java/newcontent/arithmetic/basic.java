@@ -1,4 +1,4 @@
-package newVersionOrInstance.arithmetic;
+package newcontent.arithmetic;
 
 public class basic {
 

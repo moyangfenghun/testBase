@@ -1,4 +1,4 @@
-package newVersionOrInstance.java8;
+package newcontent.java8;
 
 /**
  * 函数式接口

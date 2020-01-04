@@ -1,4 +1,4 @@
-package newVersionOrInstance.nio;
+package newcontent.nio;
 
 import java.io.FileOutputStream;
 import java.io.FileInputStream;

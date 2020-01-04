@@ -31,9 +31,9 @@ public class DataSourceUtil {
     private static DruidDataSource dds_mysql_question_article = null;//文章
     private static DruidDataSource dds_mysql_bkw_data = null;//资讯站
     private static DruidDataSource dds_mysql_bkw_question_recommend=null;
+    private static DruidDataSource dds_mysql_local_testdate=null;
 
     static{
-          
         try {
             InputStream in16 = DataSourceUtil.class.getClassLoader().getResourceAsStream("mysql/bkw_tuiguang.properties");
             Properties p16 = new Properties();
@@ -42,103 +42,68 @@ public class DataSourceUtil {
                     .createDataSource(p16);
         } catch (Exception e) {
             e.printStackTrace();
-        } 
+        }
+        try {
+            InputStream in16 = DataSourceUtil.class.getClassLoader().getResourceAsStream("mysql/my_testdate.properties");
+            Properties p16 = new Properties();
+            p16.load(in16);
+            dds_mysql_local_testdate = (DruidDataSource) DruidDataSourceFactory
+                    .createDataSource(p16);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
     public static DruidDataSource getDruidDataSource(String type) {
     	if(type.equals("mysql")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql;
     	}else if(type.equals("weixin_mp")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_weixin_mp;
     	}else if(type.equals("weixinfenxiang")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_weixinfenxiang;
     	}else if(type.equals("mc")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_mc;
     	}else if(type.equals("pintuan")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_pintuan;
     	}else if(type.equals("orderanalysis")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_orderanalysis;
     	}else if(type.equals("learninganalysis")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_learninganalysis;
     	}else if(type.equals("chatlog")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_chatlog;
     	}else if(type.equals("studylog")){
-	        //System.out.println("当前mysql正在使用的连接个数 ：" + dds_mysql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mysql);
 	        return dds_mysql_studylog;
     	}else if(type.equals("oaandcrm")){
-    		//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-            //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
             return dds_mssql_oaandcrm; 
 		}else if(type.equals("examsys")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-	        //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 	        return dds_mssql_examsys; 
 		}else if(type.equals("customerbusiness")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mssql_customerbusiness;    		
 		}else if(type.equals("examtiku")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mssql_examsys;    		
 		}else if(type.equals("ebook")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mssql_ebook;    		
 		}else if(type.equals("oracle")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_oracle;    		
 		}else if(type.equals("thuiguang")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mysql_tuiguang;    		
 		}else if(type.equals("appthuiguang")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mysql_app_tuiguang;    		
 		}else if(type.equals("yitiku")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mysql_ytk;    		
 		}else if(type.equals("promotiondata")){
-			//System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-		    //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
 		    return dds_mysql_promotiondata;    		
 		}else if(type.equals("dianjing360")){
-            //System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-            //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
             return dds_mysql_dianjing360;
         }else if(type.equals("bkw_question_article")){
-            //System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-            //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
             return dds_mysql_question_article;
         }else if(type.equals("bkw_data")){
-            //System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-            //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
             return dds_mysql_bkw_data;
         }else if(type.equals("bkw_question_recommend")){
-            //System.out.println("当前mssql正在使用的连接个数 ：" + dds_mssql.getActiveCount());
-            //System.out.println("获取的DataBaseSiurce对象" + dds_mssql);
             return dds_mysql_bkw_question_recommend;
+        }else if(type.equals("my_testdate")){
+            return dds_mysql_local_testdate;
         }
     	return null;
     }
