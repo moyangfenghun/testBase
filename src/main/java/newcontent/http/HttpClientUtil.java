@@ -307,8 +307,9 @@ public class HttpClientUtil {
      * 
      * @param httpGet
      * @return
+     * @throws Exception 
      */
-    private static String sendHttpGet(HttpGet httpGet) {
+    private static String sendHttpGet(HttpGet httpGet) throws Exception {
 
         CloseableHttpClient httpClient = null;
         CloseableHttpResponse response = null;
@@ -347,6 +348,7 @@ public class HttpClientUtil {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         } finally {
             try {
                 // 释放资源
@@ -366,8 +368,9 @@ public class HttpClientUtil {
      * 发送 get请求
      * 
      * @param httpUrl
+     * @throws Exception 
      */
-    public static String sendHttpGet(String httpUrl) {
+    public static String sendHttpGet(String httpUrl) throws Exception {
         // 创建get请求
         HttpGet httpGet = new HttpGet(httpUrl);
         return sendHttpGet(httpGet);

@@ -14,7 +14,7 @@ public class test2 {
 	public static void main(String[] args) throws IOException {
 		System.out.println("start:"+LocalDateTime.now());
 		
-		String text = "芝加哥期货交易所的建立及特点。";
+		String text = "在货币供应量[002-009-004-000-9787512905580-image/002-009-004-000-9787512905580-011-001.jpg]、[002-009-004-000-9787512905580-image/002-009-004-000-9787512905580-011-002.jpg]、[002-009-004-000-9787512905580-image/002-009-004-000-9787512905580-011-003.jpg]和[002-009-004-000-9787512905580-image/002-009-004-000-9787512905580-011-004.jpg]的层次划分中,流动性最强的是()。";
 		Analyzer analyzer = new IKAnalyzer(true);
 		StringReader reader = new StringReader(text);
 		TokenStream ts = analyzer.tokenStream("", reader);  
