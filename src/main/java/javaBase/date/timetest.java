@@ -8,7 +8,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.junit.Test;
+
 public class timetest {
+	@Test
 	public void date() {
 		Calendar time = Calendar.getInstance();
 		System.out.println(time.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -25,6 +28,7 @@ public class timetest {
 		Clock.systemDefaultZone().millis();//java 8
 		System.out.println(System.currentTimeMillis()+"||"+ date.getTime());
 	}
+	//一个月最大的天数
 	public void getdatemaxmonth() {
 		Calendar time = Calendar.getInstance();
 		System.out.println(time.getActualMaximum(Calendar.DAY_OF_MONTH));

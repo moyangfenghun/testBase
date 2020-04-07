@@ -22,12 +22,17 @@ public class rengwu {
 	public static void main(String[] args) throws ParseException {
 		String yuimng="http://datacollect.cnbkw.com:8088/";
 		String yuming1="http://localhost:8080/datacollect/";
+		String yufaing="http://test.datacollect.cnbkw.com:8083/";
 
 		ExecutorService service = Executors.newFixedThreadPool(15);
 		//推广
 //		service.execute(new myThread(yuimng+"tuiGuangPromotionDataDouyin/ADgroups","",2,true));
-		service.execute(new myThread(yuimng+"tuiguang/ptanalysis/bianli/leiji","id=88&size=100",2,false));
+//		service.execute(new myThread(yuming1+"tuiguang/ptpromotion/orderanalysis","size=50&startpt=20200131&endpt=20200201",2,false));
 
+		//-----
+		service.execute(new myThread(yuming1+"WorkorderProblem/WorkorderCount","size=10&startpt=20200326",2,false));
+
+		
 		service.shutdown();
 	}
 	

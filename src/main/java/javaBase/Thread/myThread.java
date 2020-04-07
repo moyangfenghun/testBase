@@ -1,12 +1,12 @@
 package javaBase.Thread;
 
 public class myThread extends Thread {
-	tedthread  read;
+	yue  read;
 	String name="";
 	public myThread() {
 		
 	}
-	public myThread(tedthread read,String name) {
+	public myThread(yue read,String name) {
 		this.read=read;
 		this.name=name;
 	}

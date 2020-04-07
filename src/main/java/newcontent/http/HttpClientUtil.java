@@ -103,8 +103,8 @@ public class HttpClientUtil {
             // 设置最大路由
             pool.setDefaultMaxPerRoute(20);
             // 根据默认超时限制初始化requestConfig
-            int socketTimeout = 10000;
-            int connectTimeout = 10000;
+            int socketTimeout = 10000;//读取时间
+            int connectTimeout = 10000;//连接时间
             int connectionRequestTimeout = 10000;
             requestConfig = RequestConfig.custom().setConnectionRequestTimeout(
                     connectionRequestTimeout).setSocketTimeout(socketTimeout).setConnectTimeout(
@@ -118,11 +118,9 @@ public class HttpClientUtil {
         } catch (KeyManagementException e) {
             e.printStackTrace();
         }
-        
-
         // 设置请求超时时间
-        requestConfig = RequestConfig.custom().setSocketTimeout(120000).setConnectTimeout(120000)
-                .setConnectionRequestTimeout(120000).build();
+        requestConfig = RequestConfig.custom().setSocketTimeout(360000).setConnectTimeout(360000)
+                .setConnectionRequestTimeout(15000).build();
     }
 
     /**

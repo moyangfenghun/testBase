@@ -1,14 +1,14 @@
 package javaBase.Thread;
 
 public class Runthread implements Runnable {
-	tedthread redthread;
+	yue redthread;
 	int i;
 
 	public Runthread() {
 
 	}
 
-	public Runthread(tedthread redthread,int i) {
+	public Runthread(yue redthread,int i) {
 		super();
 		this.i=i;
 		this.redthread = redthread;

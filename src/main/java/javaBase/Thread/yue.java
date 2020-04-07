@@ -1,6 +1,6 @@
 package javaBase.Thread;
 
-public class tedthread {
+public class yue {
 	int m=100;
 	public  void show(String name,int is) {
 		System.out.println("开始");
