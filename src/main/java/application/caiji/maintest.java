@@ -18,34 +18,16 @@ public class maintest {
 		String yufa="http://yufa.datacollect.cnbkw.com:8083/";
 		dal_sql dal_sql=new dal_sql();
 		//推广
-		//88,20190128
-		//87,20180225
-		//86,20170101
 //		String updatesql1="update tuiguang_temporary set pt='20200101', pagesize=0,pagenum=-1 where id=85;";
 		String updatesql2="update tuiguang_temporary set pt='20170101', pagesize=0,pagenum=-1 where id=86;";
 		String updatesql3="update tuiguang_temporary set pt='20200310', pagesize=0,pagenum=-1 where id=87;";
 		String updatesql4="update tuiguang_temporary set pt='20200320', pagesize=0,pagenum=-1 where id=88;";
-		String sql_old="SELECT pt,masterid,extensionsourceid,clienttype,SUM(register_number),SUM(discount_promotion_money),SUM(new_sittingwater),SUM(new_yeji_month) FROM extension_pt_promotion_analysis t1 LEFT JOIN"
-				+ " extension_source t2  on t1.extensionsourceid=t2.id"
-				+ " WHERE t1.extensionsourceid <100000 and t1.pt>=20200301 and t1.pt<=20200331 -- GROUP BY masterid ORDER BY masterid -- and t1.masterid=1209  --  and t2.ispaytype=1 ";
-		String sql2_new="SELECT pt,masterid,extensionsourceid,clienttype,SUM(register_number_cache),SUM(discount_promotion_money_cache),SUM(new_sittingwater_cache),SUM(new_yeji_cache) FROM extension_pt_promotion_analysis t1 LEFT JOIN"
-				+ " extension_source t2  on t1.extensionsourceid=t2.id"
-				+ " WHERE t1.extensionsourceid <100000 and t1.pt>=20200331 and t1.pt<=20200331  --  and  t1.masterid=1209 --  and t2.ispaytype=1 ";
-		String order="select ifnull(sum(realprice),0) as 流水,count(distinct orderid) as 流水订单数 From `user_orderinfo` where realprice>0 and state=1  and ordertype not in ('buymembers','signgoods') and addtime between '2020-03-01 00:00:00' and '2020-03-31 23:59:59.99' and masterid=1209 ";
-		String appsql="SELECT masterid,extensionsourceid,SUM(reg_user_number) as 注册量,SUM(vip_sittingwater) as 流水,SUM(paymoney) as 花费 FROM app_promotion WHERE pt>=20200301 and pt<=20200331 and ptflag=1   and masterid<>0 -- and extensionsourceid=9  GROUP BY masterid";
 		//100000,|app 8:13800.00,app 9:234455.70
-		String updateflagapp="UPDATE app_promotion set ptflag=0 WHERE  pt<20200301";
-		String updateflaghuafei="UPDATE temp_pt_extension_project_clienttype set flag=0 WHERE reg_pt<20200301;";
-		String updateflagorder="UPDATE user_orderinfo set ptflagfree=1 WHERE addtime<'2020-03-01';";
-
-		String countappflag="select count(*) from app_promotion  WHERE pt>=20200301 and pt<=20200331 and ptflag=0";
-		String countorderflag="select count(*) from user_orderinfo  WHERE addtime>='2020-03-01' and addtime<'2020-04-01' and ptflagfree=1";
-
-		String clearData="update extension_pt_promotion_analysis  set discount_promotion_money=0,new_sittingwater=0, new_yeji_month=0"
-				+ ",discount_promotion_money_cache=0, new_sittingwater_cache=0, new_yeji_cache=0 where pt>=20200301";
-//		String select="select * from new_askanswer_temp ";
+		String select="SELECT COUNt(*) FROM bkw_Node -- top";
+		String select2="select * from node where nodeid=33345";
+		
 		Map<String,String> map =new HashMap<String, String>();
-		map.put("string", "tonxing_:"+updateflagapp);
+		map.put("string", "tonxing_:"+select2);
 		//select,update
 		String type="select";
 		map.put("type", type);
@@ -53,8 +35,8 @@ public class maintest {
 		//bkw_question_article,bkw_data
 		//thuiguang,orderanalysis,bkw_studypaper,appthuiguang
 		//oaandcrm,examsys
-		//yitiku,weixinfenxiang,mysql
-		map.put("source", "appthuiguang");
+		//yitiku,weixinfenxiang,mysql,bkw_tiku
+		map.put("source", "examsys");
 		String results = HttpClientUtil.doPost(yufa+"tuiGuangPromotionDataDouyin/stringis/longandlong", map);
 		System.out.println(results);
 		String ids="";

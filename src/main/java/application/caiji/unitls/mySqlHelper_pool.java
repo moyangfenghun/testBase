@@ -36,6 +36,9 @@ public class mySqlHelper_pool {
 	public static final String Conn_question_article = "bkw_question_article";
 	public static final String Conn_bkw_data = "bkw_data";
 	public static final String Conn_bkw_question_recommend = "bkw_question_recommend";
+	
+	public static final String Conn_thuiguang_yufa = "thuiguangyufa";
+
     // 得到连接
     public static Connection getConnection(String connstr) throws Exception { 
     	Connection conn = null;  

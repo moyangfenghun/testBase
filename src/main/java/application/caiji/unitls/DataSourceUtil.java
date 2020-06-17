@@ -32,6 +32,7 @@ public class DataSourceUtil {
     private static DruidDataSource dds_mysql_bkw_data = null;//资讯站
     private static DruidDataSource dds_mysql_bkw_question_recommend=null;
     private static DruidDataSource dds_mysql_local_testdate=null;
+    private static DruidDataSource dds_mysql_tuiguang_yufa=null;
 
     static{
         try {
@@ -48,6 +49,15 @@ public class DataSourceUtil {
             Properties p16 = new Properties();
             p16.load(in16);
             dds_mysql_local_testdate = (DruidDataSource) DruidDataSourceFactory
+                    .createDataSource(p16);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            InputStream in16 = DataSourceUtil.class.getClassLoader().getResourceAsStream("mysql/bkw_tuiguang_yufa.properties");
+            Properties p16 = new Properties();
+            p16.load(in16);
+            dds_mysql_tuiguang_yufa = (DruidDataSource) DruidDataSourceFactory
                     .createDataSource(p16);
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,6 +114,8 @@ public class DataSourceUtil {
             return dds_mysql_bkw_question_recommend;
         }else if(type.equals("my_testdate")){
             return dds_mysql_local_testdate;
+        }else if(type.equals("thuiguangyufa")){
+        	return dds_mysql_tuiguang_yufa;
         }
     	return null;
     }

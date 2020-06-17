@@ -1,19 +1,37 @@
 package application.caiji;
 
-import java.io.UnsupportedEncodingException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 
+import javax.sql.RowSet;
+
+import com.alibaba.fastjson.JSONObject;
+
+import application.caiji.unitls.JsonConversionUtils;
 import application.caiji.unitls.mySqlHelper_local_pool;
-import suanfa.number.calculate;
+import javaBase.date.dateUtils;
 
 public class test {
 	public static void main(String[] args) throws Exception {
 		System.out.println("开始"+new Date());
-//		String insertsql="insert into test(id,text) values(3,?) ON DUPLICATE KEY UPDATE text=values(text)";
+//		String insertsql="";
 //		String values[]={"null"};
-//		mySqlHelper_local_pool.executeUpdate(mySqlHelper_local_pool.Conn_local_mysql__testdate,insertsql,values);
+//		String sql_query="SELECT TABLE_NAME,COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE Table_schema='testdate'  and DATA_TYPE='timestamp' ";
+//		RowSet executeQuery = mySqlHelper_local_pool.executeQuery(mySqlHelper_local_pool.Conn_local_mysql__testdate,sql_query,null);
+//		while(executeQuery.next()){
+//			String TABLE_NAME = executeQuery.getString("TABLE_NAME");
+//			String COLUMN_NAME =executeQuery.getString("COLUMN_NAME");
+//			String updatesql=" update `"+TABLE_NAME+"` set `"+COLUMN_NAME+"`=null where  `"+COLUMN_NAME+"`='0000-00-00' ";
+//			System.out.println(updatesql);
+//			mySqlHelper_local_pool.executeUpdate(mySqlHelper_local_pool.Conn_local_mysql__testdate, updatesql, null);
+//		}
+		
+//		System.out.println(JsonConversionUtils.ResultToJson(executeQuery));
 		
 //		int parseInt = Integer.parseInt("8880820");
 //		int parseInt2 = Integer.parseInt("4425575");
@@ -21,13 +39,30 @@ public class test {
 		
 //		String str="阻燃性沥青玛𤧛酯和塑料膜最常用于()。";
 //		System.out.println(new String(str.getBytes(), "GBK"));
-		String image = test.getImage("aslk]][[df[sadfasdf.jpg]asdf");
-		System.out.println("什么鬼"+image);
-		System.out.println("1234,1234,1234".matches("123"));
-		System.out.println("121,234".matches("^\\d+(,\\d+)*$"));
-		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyyMMdd");
-		dateFormat.setLenient(false);
-		System.out.println(dateFormat.parse("2019121"));
+//		String image = test.getImage("aslk]][[df[sadfasdf.jpg]asdf");
+//		System.out.println("什么鬼"+image);
+//		System.out.println("1234,1234,1234".matches("123"));
+//		System.out.println("121,234".matches("^\\d+(,\\d+)*$"));
+		
+//		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyyMMdd 00:00:01");
+//		dateFormat.setLenient(false);
+//		System.out.println(dateFormat.parse("2019121"));
+//		System.out.println(dateFormat.format(new Date()));
+		
+		System.out.println("sfyd"=="sfyd");
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date parse = simpleDateFormat.parse("2017-01-01 09:48:08");
+		Date calculatorDate = dateUtils.calculatorDate(parse,2555,dateUtils.YEARS);
+		System.out.println(simpleDateFormat.format(calculatorDate));
+//		StringBuilder str=new StringBuilder();
+//		str.append("asdfasdf");
+//		System.out.println(str+"|"+new Date() );
+		
+//		InputStream in = test.class.getClassLoader().getResourceAsStream("config.properties");
+//        Properties p = new Properties();
+//        p.load(in);
+//        String property = p.getProperty("migrateDataWr");
+//        System.out.println(property);
 
 		System.out.println("结束"+new Date());
 	}
