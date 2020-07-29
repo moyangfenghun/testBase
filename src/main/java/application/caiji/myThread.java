@@ -12,6 +12,13 @@ public class myThread implements Runnable {
 	private String paramers="";
 	private int jiange=1;
 	private boolean isissingle=false;
+	/**
+	 * 
+	 * @param url
+	 * @param paramers
+	 * @param jiange
+	 * @param isissingle 是否只执行1次
+	 */
 	public myThread(String url,String paramers,int jiange,boolean isissingle) {
 		this.url=url;
 		this.paramers=paramers;

@@ -22,24 +22,28 @@ public class rengwu {
 	//18年7,10
 	private static String enwpt="20190101";
 	public static void main(String[] args) throws ParseException {
-		String yuimng="http://datacollect.cnbkw.com:8088/";
-		String yuming1="http://localhost:8080/datacollect/";
-		String testyufa="http://test.datacollect.cnbkw.com:8083/";
+		String local="http://localhost:8080/datacollect_new/";
+		String test="http://test.datacollect.cnbkw.com:8083/";
+		String yufa="http://yufa.datacollect.cnbkw.com:8083/";
 
 		ExecutorService service = Executors.newFixedThreadPool(15);
 		//推广
 //		service.execute(new myThread(yuimng+"tuiGuangPromotionDataDouyin/ADgroups","",2,true));
 //		service.execute(new myThread(yuming1+"tuiguang/ptpromotion/orderanalysis","size=50&startpt=20200131&endpt=20200201",2,false));
 
-		//-----
-//		service.execute(new myThread(testyufa+"tuiguang/ptpromotion/orderanalysis","size=100&startpt=20200101",2,false));
-//		service.execute(new myThread(testyufa+"tuiguang/ptpromotionv2/order","size=100",2,false));
-//		service.execute(new myThread(testyufa+"tuiguang/ptpromotionv2/zhucehuafei","size=100",2,false));
-//		service.execute(new myThread(testyufa+"tuiguangnew/projectTeam","size=200",2,false));
-//		String sendPost = HttpClientUtil.doPost("http://localhost:8080/NewTask/taskType/addtasktype",null);
-//		service.execute(new myThread(testyufa+"qualityAnalysis/userorder","size=2000&indexid=auditRelation&Initialize=1",2,false));
-//		service.execute(new myThread(testyufa+"changestate/userOrderConsume/history","size=1000&startpt=20200101",2,false));
-		service.execute(new myThread(testyufa+"changestate/userOrderEndTime/history","size=1000&startpt=20200101",2,false));
+//		service.execute(new myThread(yufa+"qualityAnalysis/collectionUserinfo","size=1000&endpt=6057152",2,false));
+//		service.execute(new myThread(yufa+"qualityAnalysis/collectionUserinfo","size=1000&index=106&endpt=7484707",2,false));
+//		service.execute(new myThread(yufa+"qualityAnalysis/collectionUserinfo","size=1000&index=107&endpt=8185295",2,false));
+//		service.execute(new myThread(yufa+"qualityAnalysis/collectionUserinfo","size=1000&index=108&endpt=8885884",2,false));
+
+		service.execute(new myThread(yufa+"telsaleinfos/updateChange","Initialize=1&size=4000",2,false));
+//		service.execute(new myThread(yufa+"qualityAnalysis/userorder/history","size=1000",2,false));
+//		service.execute(new myThread(yufa+"telsaleinfos/userstatsChange","Initialize=1&size=4000",2,false));
+		
+//		service.execute(new myThread(local+"daqPtWatchlive","ishistory=1&endpt=20200402&opencache=1&size=50",2,false));
+//		service.execute(new myThread(yufa+"daqPtWatchlive","ishistory=1&endpt=20200331&opencache=1&size=50",2,false));
+
+//		service.execute(new myThread(yufa+"telsaleinfos/consumeChange","Initialize=1&size=2000",2,false));
 
 		service.shutdown();
 	}

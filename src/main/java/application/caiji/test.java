@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.sql.RowSet;
 
@@ -49,11 +51,13 @@ public class test {
 //		System.out.println(dateFormat.parse("2019121"));
 //		System.out.println(dateFormat.format(new Date()));
 		
-		System.out.println("sfyd"=="sfyd");
-		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date parse = simpleDateFormat.parse("2017-01-01 09:48:08");
-		Date calculatorDate = dateUtils.calculatorDate(parse,2555,dateUtils.YEARS);
-		System.out.println(simpleDateFormat.format(calculatorDate));
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+		simpleDateFormat.setLenient(false);
+		String strpt="2017-01-1";
+		simpleDateFormat.parse(strpt);
+		String replaceAll = strpt.substring(0,10).replaceAll("-", "");
+		System.out.println(replaceAll.length());
+		System.out.println(Integer.parseInt(replaceAll));
 //		StringBuilder str=new StringBuilder();
 //		str.append("asdfasdf");
 //		System.out.println(str+"|"+new Date() );

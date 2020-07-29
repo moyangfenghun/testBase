@@ -119,7 +119,7 @@ public class HttpClientUtil {
             e.printStackTrace();
         }
         // 设置请求超时时间
-        requestConfig = RequestConfig.custom().setSocketTimeout(360000).setConnectTimeout(360000)
+        requestConfig = RequestConfig.custom().setSocketTimeout(600000).setConnectTimeout(600000)
                 .setConnectionRequestTimeout(15000).build();
     }
 

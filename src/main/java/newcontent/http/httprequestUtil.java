@@ -6,10 +6,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * java原生的http请求
+ * @author ybt
+ *
+ */
 public class httprequestUtil {
 	
 	public static String sendGet(String url) {
