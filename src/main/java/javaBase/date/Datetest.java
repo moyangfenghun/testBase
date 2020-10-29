@@ -3,7 +3,7 @@ package javaBase.date;
 import java.util.Calendar;
 import java.util.Date;
 
-public class datetest {
+public class Datetest {
 
 	public static void main(String[] args) {
 		timetest timetest = new timetest();

@@ -2,7 +2,7 @@ package javaBase.date;
 
 import java.util.Date;
 
-public class dateUtils {
+public class DateUtils {
 	public static final String YEARS="y";
 	public static final String MONTH="M";
 	public static final String DAY="d";

@@ -1,22 +1,17 @@
 package application.caiji;
 
-import java.io.InputStream;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.List;
 
-import javax.sql.RowSet;
+import org.junit.Test;
 
-import com.alibaba.fastjson.JSONObject;
-
-import application.caiji.unitls.JsonConversionUtils;
-import application.caiji.unitls.mySqlHelper_local_pool;
-import javaBase.date.dateUtils;
+import javaBase.date.DateUtils;
 
 public class test {
 	public static void main(String[] args) throws Exception {
@@ -50,14 +45,30 @@ public class test {
 //		dateFormat.setLenient(false);
 //		System.out.println(dateFormat.parse("2019121"));
 //		System.out.println(dateFormat.format(new Date()));
-		
-		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-		simpleDateFormat.setLenient(false);
-		String strpt="2017-01-1";
-		simpleDateFormat.parse(strpt);
-		String replaceAll = strpt.substring(0,10).replaceAll("-", "");
-		System.out.println(replaceAll.length());
-		System.out.println(Integer.parseInt(replaceAll));
+//		long c=new Date().getTime();
+//		List<String> list=new ArrayList<String>();
+//		for (int i = 0; i < 1000000; i++) {
+//			list.add("1"+i);
+//			int f=9*9;
+//			int a=9,n=10;
+//			if(a>n) {
+//				a--;
+//			}else {
+//				a++;
+//			}
+//			Date calculatorDate = DateUtils.calculatorDate(new Date(),10,DateUtils.DAY);
+//		}
+//		long a=new Date().getTime();
+//		System.out.println("y"+(a-c));
+//		String[] array = list.toArray(new String[list.size()]);
+//		System.out.println("x"+(new Date().getTime()-a)+"|"+array.length);
+//		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+//		simpleDateFormat.setLenient(false);
+//		String strpt="2017-01-1";
+//		simpleDateFormat.parse(strpt);
+//		String replaceAll = strpt.substring(0,10).replaceAll("-", "");
+//		System.out.println(replaceAll.length());
+//		System.out.println(Integer.parseInt(replaceAll));
 //		StringBuilder str=new StringBuilder();
 //		str.append("asdfasdf");
 //		System.out.println(str+"|"+new Date() );
@@ -67,11 +78,10 @@ public class test {
 //        p.load(in);
 //        String property = p.getProperty("migrateDataWr");
 //        System.out.println(property);
-
 		System.out.println("结束"+new Date());
 	}
-	
-	
+
+
 	public static String getImage(String st) {
         String str = "";
         if (st == null) {
@@ -115,4 +125,107 @@ public class test {
         }
         return sb.toString();
     }
+	
+//	@Test
+	public void test() throws ParseException {
+		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date parse = dateFormat.parse("2017-01-16 11:00:43");//beganTime-1
+		Date parse2 = dateFormat.parse("2017-01-20 23:00:00");//last-startTime
+		int daysBetween = test.daysBetween(parse.getTime(),parse2.getTime());
+		//2017-01-15 00:00:00__2017-01-20 23:00:00 5  |2017-01-16__2017-01-20 23:59:59.999 61
+		//                     2017-03-18
+		//显示为 1.16---1.19  0+1=1--4
+		//     1.20---3.18  4+1=5
+		//再开始的时候加1天没问题，显示的时候最后1个阶段最后1天显示包含了考试的那一天所以就多了1天
+		System.out.println(daysBetween);
+	}
+	
+	private static int daysBetween(long smdate, long bdate) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(smdate);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		long time1 = cal.getTimeInMillis();
+		cal.setTimeInMillis(bdate);
+		cal.set(Calendar.HOUR_OF_DAY, 00);
+		cal.set(Calendar.SECOND, 00);
+		cal.set(Calendar.MINUTE, 00);
+		cal.set(Calendar.MILLISECOND, 0);
+		long time2 = cal.getTimeInMillis();
+		long betweenDays = (time2 - time1) / (1000 * 3600 * 24);
+		return Integer.parseInt(String.valueOf(betweenDays));
+	}
+	/**
+	 * 给定时间累加天数
+	 */
+	private static Timestamp addDay(Timestamp time, int day) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(time.getTime());
+		cal.add(Calendar.DAY_OF_YEAR, day);
+		return new Timestamp(cal.getTimeInMillis());
+	}
+//	@Test
+	public void test2() {
+//		dataCheck();
+	}
+	/**
+	 * 数据核对,用于数据量条件数量相等的情况,两组数据要使用相同的排序
+	 */
+	public void dataCheck() {
+		// TODO 数据核对,用于数据量条件数量相等的情况,两组数据要使用相同的排序
+		String str1="";
+		String replaceAll[]= str1.split("\\r\\n");
+		String fenge="";
+		String str2="";
+		String strarray[]= str2.split("\\r\\n");
+//		System.out.println(replaceAll[0]);
+		int number=0;
+		if(strarray.length>replaceAll.length) {
+			number=strarray.length;
+		}else {
+			number=replaceAll.length;
+		}
+		for (int i = 0; i < number; i++) {
+			if(!strarray[i].equals(replaceAll[i])){
+				System.out.println(i+"|"+replaceAll[i]+"|"+strarray[i]);
+			}
+		}
+	
+	}
+	
+	public void dataifCheck() {
+		// TODO 条件核对用户条件或数据量不同的情况，找出不同的条件
+		String str1="";
+		String ss="";
+		String str2="";
+		str1 = str1.replaceAll("(	| )","_").replaceAll("-", "");
+		str2 = str2.replaceAll("(	| )","_").replaceAll("-", "");
+		String[] split = str1.split("\\r\\n");
+		String[] split2 = str2.split("\\r\\n");
+		for (int i = 0; i < split2.length; i++) {
+			if(str1.indexOf(split2[i])<0) {
+				System.out.println("str1不包含"+i+"|"+split2[i]);
+			}
+		}
+		for (int i = 0; i < split.length; i++) {
+			if(str2.indexOf(split[i])<0) {
+				System.out.println("str2不包含"+i+"|"+split[i]);
+			}
+		}
+		
+	}
+	
+//	@Test
+	public void addding() {
+		String str="360bidding,sogoubidding,baidubidding,shenmabidding,360info,bzbidding,oppobidding,ucbidding,vivoinfo,wifibidding,wpsinfo,jdlkbidding,jrttbidding,youkubidding,fhbidding,huaweiinfo,xhsbidding,gdtbidding,weilibidding,ksbidding,douyinbidding,pinduoduo,fuyibidding,zlzpbidding,iqybidding,baiduinfo,zhihubidding,infoflow_shenma,fstbidding,wymusic,mybidding,txmpbidding,qttbidding,androidapp,iosapp,h5bidding,jdshop,searchengines,crmadd,other,tgregister,ttapp,xiaoetong,weixinapp,jdkbidding,textbook,baiduapp,directvisit,infosite,referral,crm";
+		String[] split = str.split(",");
+		String lll="";
+		for (int i = 0; i < split.length; i++) {
+			lll+="'"+split[i]+"',";
+		}
+		System.out.println(lll);
+	}
+	
 }

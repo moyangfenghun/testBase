@@ -6,15 +6,17 @@ import java.util.concurrent.Executors;
 public class rengwu2 {
 
 	public static void main(String[] args) {
-		String yuimng="http://datacollect.cnbkw.com:8088/";
-		String yuming1="http://localhost:8080/datacollect/";
-		String yufaing="http://test.datacollect.cnbkw.com:8083/";
+		String local="http://localhost:8080/datacollect_new/";
+		String test="http://test.datacollect.cnbkw.com:8083/";
+		String yufa="http://yufa.datacollect.cnbkw.com:8083/";
 
 		ExecutorService service = Executors.newFixedThreadPool(15);
+		service.execute(new myThread(yufa+"tuiguangnew/extensionpttimeintervalanalysis","size=50",2,false));
+//		service.execute(new myThread(yufa+"tuiguangnew/ordertotuiguang","size=50",2,false));
+//		service.execute(new myThread(yufa+"tuiguangnew/promotioncampaigngroupanalysisreg","size=50",2,false));
 
-		//累计
-		service.execute(new myThread(yufaing+"tuiguang/ptanalysis/bianli/leiji","size=200&id=86",2,false));
-		
+//		service.execute(new myThread(yufa+"/telsaleinfos/updateChange","size=2000&Initialize=1&index=133",2,false));
+
 		service.shutdown();
 	}
 
