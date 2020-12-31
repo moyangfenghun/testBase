@@ -96,28 +96,28 @@ public class request {
 		//https://api.e.qq.com/v1.1/hourly_reports/get
 		//https://api.e.qq.com/v1.1/daily_reports/get
 		//https://api.e.qq.com/v1.1/targeting_tag_reports/get
-		String url = "https://api.e.qq.com/v1.1/targeting_tag_reports/get";
+		String url = "https://api.e.qq.com/v1.3/daily_reports/get";
 		long time = new Date().getTime();
 		String uuid = UUID.randomUUID().toString();
 		uuid = uuid.replaceAll("-", "");
 		Map<String, String> map = new HashMap<>();
-		map.put("access_token", "2cf341b7addb94623bd6571a7306f833");
+		map.put("access_token", "7879e04e7ef2ec7de7d45f20d7964210");
 		map.put("timestamp", time / 1000 + "");
 		map.put("nonce", uuid);
-		map.put("account_id", "9729388");
+		map.put("account_id", "18602033");
 		//[\"date\",\"campaign_id\",\"adgroup_id\",\"cost\"],//city_id
-		map.put("fields", "[\"date\",\"city_id\",\"view_count\",\"valid_click_count\",\"ctr\",\"cpc\",\"cost\",\"activated_count\",\"activated_cost\",\"activated_rate\",\"app_add_to_car_count\",\"app_add_to_car_cost\",\"app_key_page_view_count\",\"app_checkout_count\",\"app_checkout_cost\",\"app_checkout_amount\",\"app_register_count\",\"app_register_cost\",\"app_order_count\",\"app_order_cost\",\"comment_cost\",\"comment_count\",\"click_activated_rate\",\"download_count\",\"download_rate\",\"download_cost\",\"follow_count\",\"follow_cost\",\"forward_count\",\"forward_cost\",\"install_count\",\"install_cost\",\"own_page_navigation_count\",\"praise_count\",\"praise_cost\",\"web_key_page_view_count\",\"web_key_page_view_cost\",\"web_checkout_count\",\"web_phone_call_back_count\",\"web_phone_call_direct_cost\",\"web_phone_call_back_cost\",\"web_page_reservation_count\",\"web_page_reservation_cost\",\"web_page_reservation_rate\",\"game_create_role_count\",\"game_authorize_count\",\"game_tutorial_finish_count\",\"intelligent_phone_call_direct_count\",\"external_form_reservation_count\",\"total_reservation_count\",\"page_phone_call_direct_count\"]");
+		map.put("fields", "[\"date\",\"campaign_id\",\"adgroup_id\",\"cost\"]");
 		map.put("page", "1");
-		map.put("page_size", "1000");
+		map.put("page_size", "100");
 		//REPORT_LEVEL_ADGROUP,ADVERTISER,CAMPAIGN
-		map.put("level", "CAMPAIGN");
-		map.put("date_range", "{\"start_date\":\"" + "2020-07-21" + "\",\"end_date\":\"" + "2020-07-21" + "\"}");
+		map.put("level", "REPORT_LEVEL_ADGROUP");
+		map.put("date_range", "{\"start_date\":\"" + "2020-11-21" + "\",\"end_date\":\"" + "2020-11-21" + "\"}");
 		//,\"city_id\",hour,date,
-		map.put("group_by", "[\"date\",\"city_id\"]");
-		map.put("type", "CITY");
-		map.put("filtering",
+//		map.put("group_by", "[\"date\",\"city_id\"]");
+//		map.put("type", "CITY");
+//		map.put("filtering",
 		//46845989,46407147
-		"[{\"field\":\""+"campaign_id"+"\",\"operator\":\"EQUALS\",\"values\":[" + "46845989" + "]}]");
+//		"[{\"field\":\""+"campaign_id"+"\",\"operator\":\"EQUALS\",\"values\":[" + "46845989" + "]}]");
 		BigDecimal all=new BigDecimal("0");
 		int page=1,number=1;
 		for (int i = 0; i < number; i++) {
